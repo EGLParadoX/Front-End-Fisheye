@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/photographer.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>Fisheye - photographe </title>
   </head>
   <body>
@@ -15,23 +17,64 @@
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
+      <div class="custom-select">
+        <label for="sort" class="sort-text">Trier par</label>
+        <select name="sort" class="sort">
+          <option value="popularite">Popularité</option>
+          <option value="date">Date</option>
+          <option value="titre">Titre</option>
+        </select>
+        <span class="custom-arrow"></span>
+      </div>
+
+      <section class="photographer-media-section">
+      </section>
+      
+      <div id="lightbox">
+        <img class="img" id="lightbox-img" src="">
+        <video class= "vid" id="lightbox-video"src="" controls></video>
+        <span class="close-btn">&times;</span>
+        <span class="prev-btn">&#10094;</span>
+        <span class="next-btn">&#10095;</span>
+        <div id="lightbox-title"></div>
+      </div>
+
+      <div class="likes-and-price">
+
+      </div>
+
     </main>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <h2>Contactez-moi<br><span class="modal-photographer-name"></span></h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
+				<form onsubmit="return validate();">
 					<div>
 						<label>Prénom</label>
 						<input />
+					</div>
+          <div>
+						<label>Nom</label>
+						<input />
+					</div>
+          <div>
+						<label>Email</label>
+						<input />
+					</div>
+          <div>
+						<label>Votre message</label>
+						<input class="message" />
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="scripts/factories/media.js" type="module"></script>
+    <script src="scripts/pages/photographer.js" type="module"></script>
+    <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/sortMedia.js" type="module"></script>
+    <script src="scripts/utils/lightBox.js" type="module"></script>
   </body>
 </html>
