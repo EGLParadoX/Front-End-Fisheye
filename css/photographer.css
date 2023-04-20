@@ -29,14 +29,14 @@
 
 }
 
-.photograph-header h2{
+.photograph-header h1{
     color: #D3573C;
     font-size: 64px;
     line-height: 0px;
     font-weight: 400;
 }
 
-.photograph-header h5{
+.photograph-header h2{
     color: #901C1C;
     font-size: 24px;
     line-height: 0px;
@@ -64,6 +64,10 @@
     cursor: pointer;
 }
 
+.contact_button:focus {
+    background-color: #DB8876;
+}
+
 .contact_button:hover{
     background-color: #DB8876;
     color: black;
@@ -75,6 +79,10 @@
     position: relative;
     display: inline-block;
 
+}
+
+select:hover {
+    cursor: pointer;
 }
 
 select{
@@ -180,6 +188,11 @@ form input {
     flex-direction: column;
 }
 
+.photographer-media-section article:focus .photo
+{
+    transform: scale(1.05);
+}
+
 .photographer-media-section div
 {
     display: flex;
@@ -199,7 +212,7 @@ form input {
     padding-left: 10px;
 }
 
-.photographer-media-section p 
+.photographer-media-section h3, h4
 {
     color: #901C1C;
     font-size: 24px;
@@ -234,7 +247,7 @@ form input {
     height: 60px;
 }
 
-.likes-and-price p 
+.likes-and-price h5
 {
     font-size: 24px;
     font-weight: 500;

@@ -42,7 +42,7 @@ async function displayDataPhotographer (photographer) {
 
 export function totalLike () {
   const like = document.getElementsByClassName('number-of-like')
-  const totalOfLike = document.createElement('p')
+  const totalOfLike = document.createElement('h5')
   const priceAndLikes = document.querySelector('.likes-and-price')
   const likeAndIcon = document.createElement('span')
   const iconHeart = document.createElement('i')

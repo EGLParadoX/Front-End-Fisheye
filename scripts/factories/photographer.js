@@ -2,7 +2,7 @@ export function photographerFactory (data) {
   const { name, id, city, country, tagline, price, portrait } = data
 
   const picture = `assets/photographers/${portrait}`
-  const url = 'http://127.0.0.1:5500/Front-End-Fisheye/photographer.html?'
+  const url = '/Front-End-Fisheye/photographer.html?'
 
   const searchParams = new URLSearchParams('id=' + id)
   const paramsToString = searchParams.toString()
@@ -17,7 +17,8 @@ export function photographerFactory (data) {
 
     const img = document.createElement('img')
     img.setAttribute('src', picture)
-    img.setAttribute('alt', name)
+    img.setAttribute('alt', 'Photo de profil de ' + name)
+    img.setAttribute('title', name)
     const h2 = document.createElement('h2')
     const h5 = document.createElement('h5')
     const p = document.createElement('p')
@@ -34,6 +35,47 @@ export function photographerFactory (data) {
     article.appendChild(h5)
     article.appendChild(p)
     article.appendChild(prix)
+    article.setAttribute('tabindex', '0')
+    article.setAttribute('role', 'listitem')
+
+    article.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowUp') {
+        const prev = article.previousElementSibling
+        if (prev) {
+          prev.focus()
+        } else {
+          const last = article.parentNode.lastElementChild
+          last.focus()
+        }
+      } else if (event.key === 'ArrowDown') {
+        const next = article.nextElementSibling
+        if (next) {
+          next.focus()
+        } else {
+          const first = article.parentNode.firstElementChild
+          first.focus()
+        }
+      } else if (event.key === 'ArrowLeft') {
+        const prev = article.previousElementSibling
+        if (prev) {
+          prev.focus()
+        } else {
+          const last = article.parentNode.lastElementChild
+          last.focus()
+        }
+      } else if (event.key === 'ArrowRight') {
+        const next = article.nextElementSibling
+        if (next) {
+          next.focus()
+        } else {
+          const first = article.parentNode.firstElementChild
+          first.focus()
+        }
+      } else if (event.key === 'Enter') {
+        window.location.href = url + paramsToString
+      }
+    })
+
     return article
   }
   return { name, id, city, country, tagline, price, picture, getUserCardDOM }

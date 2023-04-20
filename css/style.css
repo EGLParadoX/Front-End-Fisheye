@@ -70,6 +70,15 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.5s;
+}
+
+.photographer_section article:focus a {
+    scale: 1.07
+}
+
+.photographer_section a:hover {
+    scale: 1.07;
 }
 
 .photographer_section article h5 {

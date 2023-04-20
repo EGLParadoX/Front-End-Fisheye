@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/photographer.css" rel="stylesheet" type="text/css">
@@ -11,15 +11,15 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="Logo Fisheye"/>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()" aria-label="Contactez-moi">Contactez-moi</button>
       </div>
       <div class="custom-select">
         <label for="sort" class="sort-text">Trier par</label>
-        <select name="sort" class="sort">
+        <select name="sort" class="sort" id="sort" aria-label="Séléctionnez une option">
           <option value="popularite">Popularité</option>
           <option value="date">Date</option>
           <option value="titre">Titre</option>
@@ -48,27 +48,27 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi<br><span class="modal-photographer-name"></span></h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" aria-label="Fermer" alt="bouton fermer"/>
         </header>
-				<form onsubmit="return validate();">
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
+				<form onsubmit="return validate();" id="contact-form">
           <div>
-						<label>Nom</label>
-						<input />
-					</div>
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" />
+          </div>
           <div>
-						<label>Email</label>
-						<input />
-					</div>
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" />
+          </div>
           <div>
-						<label>Votre message</label>
-						<input class="message" />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
+            <label for="email">Email</label>
+            <input type="email" id="email" />
+          </div>
+          <div>
+            <label for="message">Votre message</label>
+            <textarea id="message" class="message"></textarea>
+          </div>
+          <button type="submit" class="contact_button">Envoyer</button>
+        </form>
 			</div>
 		</div>
     <script src="scripts/factories/media.js" type="module"></script>
