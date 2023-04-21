@@ -61,7 +61,7 @@ export function mediaFactory (data) {
         }
       }
     })
-    
+
     if (picture.split('.')[1] === 'jpg') {
       const img = document.createElement('img')
       img.classList.add('photo')
