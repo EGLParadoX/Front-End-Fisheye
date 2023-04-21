@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
   <head>
+    <meta charset="utf-8">
+    <title>Fisheye - photographe </title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/photographer.css" rel="stylesheet" type="text/css">
-    <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
@@ -30,12 +30,13 @@
       <section class="photographer-media-section">
       </section>
       
-      <div id="lightbox">
-        <img class="img" id="lightbox-img" src="">
-        <video class= "vid" id="lightbox-video"src="" controls></video>
-        <span class="close-btn">&times;</span>
-        <span class="prev-btn">&#10094;</span>
-        <span class="next-btn">&#10095;</span>
+      <div id="lightbox" role="dialog" aria-modal="true" aria-label="Affichage des différents média...">
+        <img class="img" id="lightbox-img" src="" alt=" ">
+        <video class= "vid" id="lightbox-video" src="" controls></video>
+        <span class="close-btn" aria-label="Fermer" >&times;</span>
+        <span class="prev-btn" aria-label="Précédent" >&#10094;</span>
+        <span class="next-btn" aria-label="Suivant" >&#10095;</span>
+
         <div id="lightbox-title"></div>
       </div>
 
@@ -44,7 +45,7 @@
       </div>
 
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-modal="true" aria-label="Formulaire de contact">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi<br><span class="modal-photographer-name"></span></h2>
@@ -53,19 +54,19 @@
 				<form onsubmit="return validate();" id="contact-form">
           <div>
             <label for="prenom">Prénom</label>
-            <input type="text" id="prenom" />
+            <input type="text" id="prenom" name="prenom"/>
           </div>
           <div>
             <label for="nom">Nom</label>
-            <input type="text" id="nom" />
+            <input type="text" id="nom" name="nom"/>
           </div>
           <div>
             <label for="email">Email</label>
-            <input type="email" id="email" />
+            <input type="email" id="email" name="email"/>
           </div>
           <div>
             <label for="message">Votre message</label>
-            <textarea id="message" class="message"></textarea>
+            <textarea id="message" class="message" name="message"></textarea>
           </div>
           <button type="submit" class="contact_button">Envoyer</button>
         </form>
