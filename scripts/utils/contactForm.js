@@ -1,14 +1,50 @@
 /* eslint-disable no-unused-vars */
-const modal = document.getElementById('contact_modal')
-
 function displayModal () {
+  const modal = document.getElementById('contact_modal')
   modal.style.display = 'block'
+  modal.setAttribute('aria-hidden', 'false')
+  modal.setAttribute('tabindex', '0')
+  modal.focus()
 }
 
 function closeModal () {
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'none'
+  modal.setAttribute('aria-hidden', 'true')
+  modal.setAttribute('tabindex', '-1')
 }
+function manageFocus (event) {
+  const modal = document.getElementById('contact_modal')
+  const focusableElements = modal.querySelectorAll("input, textarea, button, [tabindex='0']")
+
+  const currentFocus = document.activeElement
+  const currentIndex = Array.from(focusableElements).indexOf(currentFocus)
+
+  if (event.key === 'Tab') {
+    event.preventDefault()
+
+    if (event.shiftKey) {
+      const previousIndex = currentIndex === 0 ? focusableElements.length - 1 : currentIndex - 1
+      focusableElements[previousIndex].focus()
+    } else {
+      const nextIndex = currentIndex === focusableElements.length - 1 ? 0 : currentIndex + 1
+      focusableElements[nextIndex].focus()
+    }
+  } else if (event.key === 'ArrowUp') {
+    event.preventDefault()
+
+    const previousIndex = currentIndex === 0 ? focusableElements.length - 1 : currentIndex - 1
+    focusableElements[previousIndex].focus()
+  } else if (event.key === 'ArrowDown') {
+    event.preventDefault()
+
+    const nextIndex = currentIndex === focusableElements.length - 1 ? 0 : currentIndex + 1
+    focusableElements[nextIndex].focus()
+  } else if (event.key === 'Escape') {
+    closeModal()
+  }
+}
+document.getElementById('contact_modal').addEventListener('keydown', manageFocus)
 
 function validate () {
   const prenom = document.getElementById('prenom').value
@@ -16,12 +52,10 @@ function validate () {
   const email = document.getElementById('email').value
   const message = document.getElementById('message').value
 
-  // Vérification du prénom
   if (prenom.length < 2 || !/^[a-zA-ZÀ-ÿ]+-?[a-zA-ZÀ-ÿ]*$/.test(prenom)) {
     alert('Le prénom doit contenir au moins 2 caractères, uniquement des lettres.')
   }
 
-  // Vérification du nom
   if (nom.length < 2 || !/^[a-zA-ZÀ-ÿ]+-?[a-zA-ZÀ-ÿ]*$/.test(nom)) {
     alert('Le nom doit contenir au moins 2 caractères, uniquement des lettres')
     return false

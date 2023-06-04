@@ -1,6 +1,7 @@
 
 #contact_modal {
     display: none;
+    padding-top: 5%;
     top: 0;
     left: 0;
     z-index: 1;
@@ -107,7 +108,6 @@ select{
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
-    top: 2000px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -129,7 +129,6 @@ select{
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
 }
 
 .modal .message{
@@ -149,6 +148,7 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    padding-top: 40px;
 }
 
 form label {
@@ -340,4 +340,3 @@ form input {
   {
     transform: scale(1.05);
   }
-

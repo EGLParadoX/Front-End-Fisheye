@@ -15,7 +15,6 @@ export function mediaFactory (data) {
     price
   } = data
   const logo = document.querySelector('.logo')
-  const modalName = document.querySelector('.modal-photographer-name')
 
   logo.style.cursor = 'pointer'
   logo.addEventListener('click', () => {
@@ -24,8 +23,6 @@ export function mediaFactory (data) {
   const picture = `assets/media/${image}`
   const mp4 = `assets/video/${video}`
   const photographerImg = `assets/photographers/${portrait}`
-
-  modalName.innerText = name
 
   function getUserPhotoDOM () {
     const articlePhotographer = document.createElement('article')
@@ -95,6 +92,7 @@ export function mediaFactory (data) {
   }
 
   function getUserInfoDOM () {
+    const modalName = document.querySelector('.modal-photographer-name')
     const infoPhotographer = document.querySelector('.photograph-header')
     const modalButton = document.querySelector('.contact_button')
     const img = document.createElement('img')
@@ -112,6 +110,7 @@ export function mediaFactory (data) {
     h2.textContent = city + ', ' + country
     p.textContent = tagline
 
+    modalName.innerText = name
     info.appendChild(h1)
     priceAndLikes.appendChild(prix)
     info.appendChild(h2)

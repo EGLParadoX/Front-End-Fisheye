@@ -46,12 +46,15 @@
 
     </main>
     <div id="contact_modal" role="dialog" aria-modal="true" aria-label="Formulaire de contact">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi<br><span class="modal-photographer-name"></span></h2>
+      <div class="modal">
+        <header>
+          <div class="title-and-name">
+            <h2>Contactez-moi<br><span class="modal-photographer-name"></span></h2>
+            
+          </div>
           <img src="assets/icons/close.svg" onclick="closeModal()" aria-label="Fermer"/>
         </header>
-				<form onsubmit="return validate();" id="contact-form">
+        <form onsubmit="return validate();" id="contact-form">
           <div>
             <label for="prenom">Prénom</label>
             <input type="text" id="prenom" name="prenom"/>
@@ -70,8 +73,10 @@
           </div>
           <button type="submit" class="contact_button">Envoyer</button>
         </form>
-			</div>
-		</div>
+      </div>
+      <button onclick="closeModal()" aria-label="Fermer"></button>
+    </div>
+    
     <script src="scripts/factories/media.js" type="module"></script>
     <script src="scripts/pages/photographer.js" type="module"></script>
     <script src="scripts/utils/contactForm.js"></script>

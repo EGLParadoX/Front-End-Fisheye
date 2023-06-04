@@ -37,7 +37,11 @@ async function displayDataPhotographer (photographer) {
   const photographerSection = document.querySelector('.photograph-header')
   const photographerModel = mediaFactory(photographer)
   const userCardDOM = photographerModel.getUserInfoDOM()
-  photographerSection.appendChild(userCardDOM)
+
+  // Vérification pour éviter l'ajout d'un ancêtre comme enfant
+  if (!photographerSection.contains(userCardDOM)) {
+    photographerSection.appendChild(userCardDOM)
+  }
 }
 
 export function totalLike () {
